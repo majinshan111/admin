@@ -1,17 +1,17 @@
 import React,{Component}from 'react';
 
 
-class Goods extends Component {
+class Goodshouse extends Component {
 
   render() { 
     
     return (
       <div className='login-box'>
-        这里是Goods
+        这里是Goodshouse
       </div>
     );
   }
 }
 
 
-export default Goods
+export default Goodshouse

@@ -7,7 +7,9 @@ const Login = ComponentImport(()=>import('./component/login'))
 const Admin = ComponentImport(()=>import('./component/admin'))
 const Home = ComponentImport(()=>import('./component/home'))
 const Users = ComponentImport(()=>import('./component/users'))
-const Goods = ComponentImport(()=>import('./component/goods'))
+const GoodsAdd = ComponentImport(()=>import('./component/goods/goodsadd'))
+const GoodsList = ComponentImport(()=>import('./component/goods/goodslist'))
+const GoodsHouse = ComponentImport(()=>import('./component/goods/goodshouse'))
 const CategoryFirst = ComponentImport(()=>import('./component/category/categoryFirst'))
 const CategorySecond = ComponentImport(()=>import('./component/category/categorySecond'))
 const OrderDispath = ComponentImport(()=>import('./component/orders/orderDispath'))
@@ -32,7 +34,9 @@ class RootRouter extends Component{
                             <Redirect exact from='/admin' to='/admin/home'/>
                             <Route path='/admin/home' component={Home}/>
                             <Route path='/admin/users' component={Users}/>
-                            <Route path='/admin/goods' component={Goods}/>
+                            <Route path='/admin/goodsadd' component={GoodsAdd}/>
+                            <Route path='/admin/goodslist' component={GoodsList}/>
+                            <Route path='/admin/goodshouse' component={GoodsHouse}/>
                             <Route path='/admin/categoryfirst' component={CategoryFirst}/>
                             <Route path='/admin/categorysecond' component={CategorySecond}/>
                             <Route path='/admin/orderdispath' component={OrderDispath}/>
