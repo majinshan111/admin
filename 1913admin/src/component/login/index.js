@@ -9,7 +9,7 @@ class Login extends Component {
   render() { 
     
     return (
-      <div className='login-box'>
+      <div className='login-box1'>
         这里是登录页
       <div className="sidebar-logo">
         <img src={logo} alt="..."/>

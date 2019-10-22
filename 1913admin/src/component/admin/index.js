@@ -149,7 +149,7 @@ class SiderDemo extends React.Component {
               </div>
               
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 ,maxHeight:600}}>{this.props.children}</div>
+            <div style={{ padding: 24, background: '#fff', minHeight: 360 ,maxHeight:655}}>{this.props.children}</div>
           </Content>
           {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
         </Layout>
