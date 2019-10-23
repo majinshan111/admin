@@ -6,7 +6,8 @@ import {HashRouter,Switch,Redirect,Route} from 'react-router-dom'
 const Login = ComponentImport(()=>import('./component/login'))
 const Admin = ComponentImport(()=>import('./component/admin'))
 const Home = ComponentImport(()=>import('./component/home'))
-const Users = ComponentImport(()=>import('./component/users'))
+const UsersMsg = ComponentImport(()=>import('./component/users/change/changeMsg'))
+const UsersPas = ComponentImport(()=>import('./component/users/change/changePas'))
 const GoodsAdd = ComponentImport(()=>import('./component/goods/goodsadd'))
 const GoodsList = ComponentImport(()=>import('./component/goods/goodslist'))
 const GoodsHouse = ComponentImport(()=>import('./component/goods/goodshouse'))
@@ -33,7 +34,8 @@ class RootRouter extends Component{
                             {/* <CustomNav></CustomNav> */}
                             <Redirect exact from='/admin' to='/admin/home'/>
                             <Route path='/admin/home' component={Home}/>
-                            <Route path='/admin/users' component={Users}/>
+                            <Route path='/admin/usermsg' component={UsersMsg}/>
+                            <Route path='/admin/userpas' component={UsersPas}/>
                             <Route path='/admin/goodsadd' component={GoodsAdd}/>
                             <Route path='/admin/goodslist' component={GoodsList}/>
                             <Route path='/admin/goodshouse' component={GoodsHouse}/>

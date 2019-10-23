@@ -45,15 +45,36 @@ class SiderDemo extends React.Component {
               <span>首页</span>
             </Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            {/* <Menu.Item key="2">
             <Link to="/admin/users">
               <Icon type="user" />
               <span>用户信息管理</span>
             </Link>
-            </Menu.Item>
+            </Menu.Item> */}
+            <SubMenu
+              key="sub1"
+              title={
+                <span>
+                  <Icon type="user" />
+                  <span>用户信息管理</span>
+                </span>
+              }
+            >
+              <Menu.Item key="2">
+              <Link to="/admin/usermsg">
+                <span>修改信息</span>
+              </Link>
+                  </Menu.Item>
+              <Menu.Item key="3">
+              <Link to="/admin/userpas">
+                <span>修改密码</span>
+              </Link>
+                  </Menu.Item>
+              
+            </SubMenu>
            
              <SubMenu
-              key="sub1"
+              key="sub2"
               title={
                 <span>
                   <Icon type="table" />
@@ -61,24 +82,24 @@ class SiderDemo extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="3">
+              <Menu.Item key="4">
               <Link to="/admin/goodslist">
                 <span>商品查询</span>
               </Link>
                   </Menu.Item>
-              <Menu.Item key="4">
+              <Menu.Item key="5">
               <Link to="/admin/goodsadd">
                 <span>商品添加</span>
               </Link>
                   </Menu.Item>
-                  <Menu.Item key="5">
+                  <Menu.Item key="6">
               <Link to="/admin/goodshouse">
                 <span>商品出入库</span>
               </Link>
                   </Menu.Item>
             </SubMenu>
             <SubMenu
-              key="sub2"
+              key="sub3"
               title={
                 <span>
                   <Icon type="tags-o" />
@@ -86,12 +107,12 @@ class SiderDemo extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="6">
+              <Menu.Item key="7">
               <Link to="/admin/categoryfirst">
                 <span>一级分类</span>
               </Link>
                   </Menu.Item>
-              <Menu.Item key="7">
+              <Menu.Item key="8">
               <Link to="/admin/categorysecond">
                 <span>二级分类</span>
               </Link>
@@ -99,7 +120,7 @@ class SiderDemo extends React.Component {
               
             </SubMenu>
             <SubMenu
-              key="sub3"
+              key="sub4"
               title={
                 <span>
                   <Icon type="profile" />
@@ -107,23 +128,23 @@ class SiderDemo extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="8">
+              <Menu.Item key="9">
               <Link to="/admin/orders">
                 <span>订单查询</span>
               </Link>
                   </Menu.Item>
-              <Menu.Item key="9">
+              <Menu.Item key="10">
               <Link to="/admin/orderdispatch">
                   <span>订单配送&nbsp;&nbsp;</span>
                 </Link>
                   </Menu.Item>
-              <Menu.Item key="10">
+              <Menu.Item key="11">
               <Link to="/admin/orderrefund">
                   <span>退款处理&nbsp;&nbsp;</span>
                 </Link>
                   </Menu.Item>
             </SubMenu>
-            <Menu.Item key="11">
+            <Menu.Item key="12">
             <Link to="/admin/advs">
               <Icon type="switcher" />
               <span>滑动广告管理</span>
