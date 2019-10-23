@@ -1,19 +1,29 @@
 import React from 'react';
+<<<<<<< HEAD
 import './index.less'
+=======
+import './index.less';
+>>>>>>> lijiao
 import { Form, Icon, Input, Button, Checkbox ,message} from 'antd';
 // import SidebarLogo from '../admin/SidebarLogo';
 import logo from '../assets/images/logo.png';
 
 class Login extends React.Component {
+<<<<<<< HEAD
   submit=()=>{
     console.log('登录')
     // let result=this.props.form.getFieldsValue()
     // console.log(result)
+=======
+/*   submit=()=>{
+    console.log('登录')
+>>>>>>> lijiao
     this.props.form.validateFields((err,data)=>{
         if(err){
             message.error('输入信息有误请重试')
         }else{
           // this.$axios.get('/yapi/admin/login',{us:123,ps:123})
+<<<<<<< HEAD
           this.$axios.post('/login/admin/user/login',{us:data.us,ps:data.ps})
             .then((data)=>{
               console.log(data)
@@ -26,6 +36,48 @@ class Login extends React.Component {
         console.log(err,data)
     })
 }
+=======
+          // JSON.stringify(data.us)
+          // this.$axios.get('/fm/admin/user/login',{us:123,ps:123}) 
+          this.$axios.get(`/fm/admin/user/login?us=${123}&ps=${123}`) 
+            .then((data)=>{
+              console.log(data)
+              if(data.data.err===0){
+                message.success('登录成功1后跳转首页',1,()=>{
+                this.props.history.push('/admin')
+                })
+              }
+            })
+        }
+        console.log(err,data)
+    })
+} */
+submit=()=>{
+  console.log('登录')
+  let reuslt=this.props.form.getFieldsValue()
+  // console.log(reuslt)
+  // console.log(reuslt.us,reuslt.ps)
+  let {us,ps} = reuslt 
+  let href = `/fm/admin/user/login?us=${us}&ps=${ps}`
+  this.props.form.validateFields((err,data)=>{
+    this.$axios.get(href)
+    .then((data)=>{
+      console.log(data)
+     if(data.data.err === -2){
+       console.log(data.err)
+      message.error('登录失败，请重新输入 ！')
+     }
+     else {
+      message.success('登录成功1s后跳转首页',1,()=>{
+        this.props.history.push('/admin')
+      })
+     }
+    })
+    
+  })
+}
+
+>>>>>>> lijiao
 
   render() { 
     const { getFieldDecorator } = this.props.form;
@@ -83,3 +135,7 @@ class Login extends React.Component {
 }
 
 export default Form.create()(Login)
+<<<<<<< HEAD
+=======
+
+>>>>>>> lijiao
