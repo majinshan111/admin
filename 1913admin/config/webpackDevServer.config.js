@@ -81,7 +81,15 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    proxy,
+    proxy:{
+      '/fm':{
+        target:'http://10.60.14.254:3000',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/fm':''
+        }
+      }
+    },
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons

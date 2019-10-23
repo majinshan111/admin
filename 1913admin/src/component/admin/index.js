@@ -29,7 +29,7 @@ class SiderDemo extends React.Component {
   }
 
   render() {
-      console.log(this)
+      // console.log(this)
       const menu = this.renderOverlay()
     return (
       <Layout style={{ minHeight: '100vh' }}>
