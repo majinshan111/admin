@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{Component}  from 'react';
 import ReactDOM from 'react-dom';
 import Router from './router'
 // import App from './App';
+import axios from './utils/axios'
+
 import * as serviceWorker from './serviceWorker';
 // import Admin from './component/admin/index'
-
+Component.prototype.$axios=axios
 ReactDOM.render(
 
 <Router></Router>
