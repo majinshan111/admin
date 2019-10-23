@@ -3,14 +3,16 @@
     margin: 0;
     width: 100vw;
     height: 100vh;
-    background: url('http://img1.imgtn.bdimg.com/it/u=3048529923,2449366418&fm=26&gp=0.jpg');
+    background: url('../assets/images/bg.jpg');
     background-size: cover;
     // background-size: 80%;
     background-position: center;
     .sidebar-logo{
+        box-sizing:border-box;
         width: 8vw;
         height: 64px;
         line-height: 64px;
+        // padding: 30px;
         margin: 30px auto;
         display: flex;
         flex-direction: column;
@@ -45,7 +47,13 @@
     // height: 10vh;
         margin: 10px auto;
         .ant-form-item{
-            margin-bottom: 0;
+            margin-bottom: 20px;
+        }
+        .login-form-forgot{
+            float: right;
+        }
+        .login-form-button{
+            width: 25vw;
         }
     }
 }
