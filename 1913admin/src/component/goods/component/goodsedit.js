@@ -4,8 +4,15 @@ import CategorySelect from './categoryselector'
 import './goodsedit.less'
 const FormItem = Form.Item
 class goodsEdit extends Component{
+    constructor(props){
+        super(props)
+    }
+    // componentDidMount(){
+    //     setFieldsValue({['goodsname']:this.props.data.name})
+    // }
     render(){
-        const { getFieldDecorator } = this.props.form;
+        const { getFieldDecorator} = this.props.form;
+        // console.log(this,'商品编辑组件')
         return(
             <div className="edit-box">
                 <Form layout="vertical">
@@ -111,5 +118,16 @@ class goodsEdit extends Component{
         )
     }
 }
-const Edit = Form.create({ name: 'advanced_edit' })(goodsEdit);
-export default Edit
+const Editgoods = Form.create({ name: 'advanced_edit' })(goodsEdit);
+// const Edit = Form.create({
+//     mapPropsToFields(props){
+//         console.log(props)
+//         return{
+//             [goodsname]:Form.createFormField({
+//                 value:props.data.name
+//             })
+//         }
+
+//     }
+// })(Editgoods)
+export default Editgoods

@@ -5,8 +5,38 @@ import './goodsadd.less'
 const FormItem = Form.Item
 
 class GoodsAdd extends Component {
+    
+    constructor(){
+        super()
+        this.state={
+            img:'',
+            goodsname:''
+        }
+    }
     handleReset=()=>{
         this.props.form.resetFields();
+    }
+    upload=()=>{
+        let file = this.refs.file.files[0]
+        let formdata = new FormData()
+        formdata.append('hehe',file)
+        // console.log(formdata.get('hehe'))
+        // console.log(file)
+        let config = {
+            headers:{'Content-Type':'multipart/form-data'}
+        }
+        this.$axios.post('/fm/admin/file/img',formdata,config)
+        .then((data)=>{
+            console.log(data)
+            let imgpath = 'http://10.60.14.254:3000' + data.data.imgPath
+            console.log(imgpath)
+            this.setState({img:imgpath})
+        })
+    }
+    submit=()=>{
+        this.props.form.validateFields((err,data)=>{
+            console.log(data.goodName)
+        })
     }
     render(){
         const { getFieldDecorator } = this.props.form;
@@ -42,24 +72,20 @@ class GoodsAdd extends Component {
                             <CategorySelect />
                         )}
                     </FormItem>
-                    {/* <FormItem label="图片:">
+                    <FormItem label="图片:">
                         {getFieldDecorator('image', {
                         rules: [{
                             required: true,
                             message: '请上传商品图片'
                         }]
                         })(
-                        <Upload
-                            name="image"
-                            listType="picture"
-                            className="avatar-uploader"
-                            showUploadList={false}
-                            beforeUpload={this.beforeUpload}
-                        >
-                            {imageUrl ? <img src={imageUrl} alt="" /> : uploadButton}
-                        </Upload> 
+                        <div>
+                            <input type="file" ref='file' name="" id=""/>
+                            <button onClick={this.upload}>上传</button>
+                            {/* <img src='' alt=""/> */}
+                        </div>
                         )}
-                    </FormItem> */}
+                    </FormItem>
                     <FormItem label="现价:">
                         {getFieldDecorator('price', {
                         rules: [{
@@ -108,7 +134,7 @@ class GoodsAdd extends Component {
                         )}
                     </FormItem>
                     <div className="goodsadd-button">
-                        <Button type="primary">添加</Button>
+                        <Button type="primary" onClick={this.submit}>添加</Button>
                         <Button onClick={this.handleReset}>重置</Button>
                     </div>
                 </Form>
