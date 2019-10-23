@@ -3,6 +3,7 @@ import React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import SidebarLogo from './SidebarLogo';
 import { Link } from 'react-router-dom';
+// import './index.less'
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -120,12 +121,12 @@ class SiderDemo extends React.Component {
         </Sider>
         <Layout>
           {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
-          <Content style={{ margin: '0 16px' }}>
+          <Content style={{ margin: '0 16px' }} className="content-box">
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>{this.props.children}</div>
+            <div style={{ padding: 24, background: '#fff', minHeight: 360}}>{this.props.children}</div>
           </Content>
           {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
         </Layout>

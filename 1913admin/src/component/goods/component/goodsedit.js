@@ -1,23 +1,18 @@
-import React,{Component}from 'react';
-import CategorySelect from './component/categoryselector'
+import React,{Component} from 'react'
 import { Button,Form,Input } from 'antd';
-import './goodsadd.less'
+import CategorySelect from './categoryselector'
+import './goodsedit.less'
 const FormItem = Form.Item
-
-class GoodsAdd extends Component {
-    handleReset=()=>{
-        this.props.form.resetFields();
-    }
+class goodsEdit extends Component{
     render(){
         const { getFieldDecorator } = this.props.form;
         return(
-            <div className="goodsadd-box">
-                <div>
-                    <h4>商品添加</h4>
-                    <p>商品信息添加操作</p>
-                    <hr/>
-                </div>
+            <div className="edit-box">
                 <Form layout="vertical">
+                    <div>
+                        <h4>编辑商品</h4>
+                        <hr/>
+                    </div>
                     <FormItem label="商品名称:">
                         {getFieldDecorator('goodName', {
                         rules: [{
@@ -107,15 +102,14 @@ class GoodsAdd extends Component {
                         <Input />
                         )}
                     </FormItem>
-                    <div className="goodsadd-button">
-                        <Button type="primary">添加</Button>
-                        <Button onClick={this.handleReset}>重置</Button>
+                    <div className="edit-button">
+                        <Button onClick={this.props.changeEditState.bind(this,false)}>取消</Button>
+                        <Button type="primary">保存</Button>
                     </div>
                 </Form>
             </div>
-          
         )
     }
 }
-const Add = Form.create({ name: 'advanced_search' })(GoodsAdd);
-export default Add
+const Edit = Form.create({ name: 'advanced_edit' })(goodsEdit);
+export default Edit
