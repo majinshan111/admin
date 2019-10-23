@@ -82,27 +82,6 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
-<<<<<<< HEAD
-<<<<<<< HEAD
-      // '/yapi':{
-      //   target:'http://yapi.demo.qunar.com/mock/10478',
-      //   changeOrigin:true,
-      //   pathRewrite:{
-      //     '^/yapi':''
-      //   }
-      // },
-      '/login':{
-=======
-      '/fm':{
->>>>>>> e29b326d5ce72de82cb7983d5ccb49a3859fd7ad
-        target:'http://10.60.14.254:3000',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/fm':''
-        }
-      }
-    },
-=======
       '/fm':{
         target:'http://10.60.14.254:3000',
         changeOrigin:true,
@@ -111,7 +90,7 @@ module.exports = function(proxy, allowedHost) {
         }
       }
     },
->>>>>>> wj
+
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
