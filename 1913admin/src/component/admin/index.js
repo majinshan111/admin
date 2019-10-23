@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon ,Dropdown} from 'antd';
 import SidebarLogo from './SidebarLogo';
 import { Link } from 'react-router-dom';
 // import './index.less'
@@ -17,9 +17,21 @@ class SiderDemo extends React.Component {
     console.log(collapsed);
     this.setState({ collapsed });
   };
+  renderOverlay() {
+    return (
+      <Menu >
+        <Menu.Item>
+          <Link to="/login">
+            退出
+          </Link>
+        </Menu.Item>
+      </Menu>
+    )
+  }
 
   render() {
       console.log(this)
+      const menu = this.renderOverlay()
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
@@ -121,10 +133,22 @@ class SiderDemo extends React.Component {
         </Sider>
         <Layout>
           {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
-          <Content style={{ margin: '0 16px' }} className="content-box">
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
+          <Content style={{ margin: '0 16px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }} className='head'>
+              <div>
+                <Breadcrumb.Item>主页</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
+              </div>
+              <div>
+                  <Dropdown overlay={menu} className='head-right'>
+                      <li className="nav-item">
+                        <Icon
+                          type="user"
+                        />
+                      </li>
+                </Dropdown>
+              </div>
+              
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 360}}>{this.props.children}</div>
           </Content>
