@@ -82,26 +82,11 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
-<<<<<<< HEAD
-      // '/yapi':{
-      //   target:'http://yapi.demo.qunar.com/mock/10478',
-      //   changeOrigin:true,
-      //   pathRewrite:{
-      //     '^/yapi':''
-      //   }
-      // },
-      '/login':{
-        target:'http://10.60.14.254:3000',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/login':''
-=======
       '/fm':{
         target:'http://10.60.14.254:3000',
         changeOrigin:true,
         pathRewrite:{
           '^/fm':''
->>>>>>> lijiao
         }
       }
     },
