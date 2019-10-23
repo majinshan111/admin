@@ -6,8 +6,11 @@ import {HashRouter,Switch,Redirect,Route} from 'react-router-dom'
 const Login = ComponentImport(()=>import('./component/login'))
 const Admin = ComponentImport(()=>import('./component/admin'))
 const Home = ComponentImport(()=>import('./component/home'))
-const Users = ComponentImport(()=>import('./component/users'))
-const Goods = ComponentImport(()=>import('./component/goods'))
+const UsersMsg = ComponentImport(()=>import('./component/users/change/changeMsg'))
+const UsersPas = ComponentImport(()=>import('./component/users/change/changePas'))
+const GoodsAdd = ComponentImport(()=>import('./component/goods/goodsadd'))
+const GoodsList = ComponentImport(()=>import('./component/goods/goodslist'))
+const GoodsHouse = ComponentImport(()=>import('./component/goods/goodshouse'))
 const CategoryFirst = ComponentImport(()=>import('./component/category/categoryFirst'))
 const CategorySecond = ComponentImport(()=>import('./component/category/categorySecond'))
 const OrderDispath = ComponentImport(()=>import('./component/orders/orderDispath'))
@@ -31,8 +34,11 @@ class RootRouter extends Component{
                             {/* <CustomNav></CustomNav> */}
                             <Redirect exact from='/admin' to='/admin/home'/>
                             <Route path='/admin/home' component={Home}/>
-                            <Route path='/admin/users' component={Users}/>
-                            <Route path='/admin/goods' component={Goods}/>
+                            <Route path='/admin/usermsg' component={UsersMsg}/>
+                            <Route path='/admin/userpas' component={UsersPas}/>
+                            <Route path='/admin/goodsadd' component={GoodsAdd}/>
+                            <Route path='/admin/goodslist' component={GoodsList}/>
+                            <Route path='/admin/goodshouse' component={GoodsHouse}/>
                             <Route path='/admin/categoryfirst' component={CategoryFirst}/>
                             <Route path='/admin/categorysecond' component={CategorySecond}/>
                             <Route path='/admin/orderdispath' component={OrderDispath}/>
