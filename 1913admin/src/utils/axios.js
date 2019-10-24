@@ -17,12 +17,13 @@ axios.interceptors.response.use(function (response) {
     // Do something with response data
 console.log('response:::',response)
 
-  if(response.data.token){
+  /* if(response.data.token){
     let action =actionCreator.changeTokenModel(true)
       store.dispatch(action)
-  }
-    /* let action =actionCreator.changeTokenModel(true)
-    store.dispatch(action) */
+  } */
+  console.log('token',response.data.token)
+    let action =actionCreator.changeTokenModel(true)
+    store.dispatch(action)
     
     return response;
   }, function (error) {
