@@ -133,15 +133,9 @@ class SiderDemo extends React.Component {
                 <span>订单查询</span>
               </Link>
                   </Menu.Item>
-<<<<<<< HEAD
               <Menu.Item key="9">
               <Link to="/admin/orderdispath">
                   <span>订单配送</span>
-=======
-              <Menu.Item key="10">
-              <Link to="/admin/orderdispatch">
-                  <span>订单配送&nbsp;&nbsp;</span>
->>>>>>> e29b326d5ce72de82cb7983d5ccb49a3859fd7ad
                 </Link>
                   </Menu.Item>
               <Menu.Item key="11">
