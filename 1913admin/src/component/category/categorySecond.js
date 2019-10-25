@@ -1,42 +1,40 @@
-import React,{Component}from 'react';
-import ReactDOM from 'react-dom';
-import { List, Card } from 'antd';
-class CategorySecond extends Component {
+import React,{Component} from 'react'
+import {Link} from 'react-router-dom'
+import Housing from './goodstype'
+import Listgoods from './list'
 
+class categorySecond extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+        list:['主页  /  商品分类管理','二级分类']
+    }
+}
+changeState=(state)=>{
+  this.setState({comeState:state})
+}
   render() { 
-    const data = [
-  {
-    title: 'Title 1',
-  },
-  {
-    title: 'Title 2',
-  },
-  {
-    title: 'Title 3',
-  },
-  {
-    title: 'Title 4',
-  },
-];
+    let {comeState} = this.state
     return (
       <div className='login-box'>
-        <List
-    grid={{ gutter: 16, column: 4 }}
-    dataSource={data}
-    renderItem={item => (
-      <List.Item>
-        <Card title={item.title}>Card content</Card>
-      </List.Item>
-    )}
-  />,
+        {!comeState || <Housing id="creat"　changeState={this.changeState}></Housing>}
+        <div className='manage-header'>
+          <div className='manage-header-nav'>
+          </div>
+            <div className='manage-header-foot'>
+                     {this.state.list.map((item,index)=>{
+                         return (
+                             <div key={index}>{item}</div>
+                         ) 
+                     })}
+                  </div>
+               </div>
+        <div className='manage-footer'><button onClick={this.changeState.bind(this,true)}>添加</button>
+          <Listgoods></Listgoods>
+        </div>
       </div>
     );
   }
 }
 
-
-export default CategorySecond
-// const EditableFormTable = Form.create()(EditableTable);
-
-// ReactDOM.render(<EditableFormTable />, mountNode);
-// export default EditableFormTable;
+export default categorySecond
