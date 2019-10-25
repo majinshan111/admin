@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{Component} from 'react'
 import './Panel.less'
-function Panel(){
+class Panel extends Component{
 
+  render(){
     return(
         <div>
             <div className='Panel'>
@@ -11,5 +12,6 @@ function Panel(){
         </div>
       
     )
+  }
 }
 export default Panel
