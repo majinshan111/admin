@@ -44,6 +44,7 @@ submit=()=>{
      }
      else {
       message.success('登录成功1s后跳转首页',1,()=>{
+        localStorage.setItem('token',JSON.stringify(data.data.token))
         this.props.history.push('/admin')
       })
      }
