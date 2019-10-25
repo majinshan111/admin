@@ -6,12 +6,16 @@ import {withRouter}from 'react-router-dom'
 // import state from '../../store/state';
 
 class TokenModel extends Component{
+   
     render(){
-        console.log(this,'model')
-        let {TokenModel}=this.props
+        // console.log('model')
+        // console.log(this,'model',)
+        console.log(this.props)
+        let {tokenModel}=this.props
+        console.log(this,'model',!tokenModel)
         return(
             <Fragment>
-                {!TokenModel ||
+                {!tokenModel ||
                     <div className='token-model'>
                     <Card title='token失效'>
                         token缺失或者失效，请重新登录
