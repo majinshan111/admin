@@ -9,7 +9,7 @@ const columns = [
         key: '_id',
       },
     {
-      title: '一级分类',
+      title: '二级分类',
       dataIndex: 'name',
       key: 'name',
     },
