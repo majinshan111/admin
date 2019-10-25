@@ -18,16 +18,22 @@ class Avatar extends React.Component {
   constructor(props){
     super(props)
     this.state={
+     _id:props.data._id||'',
       adv_swiper_id:props.data.adv_swiper_id||'',
       category_second_id:props.data.category_second_id||'',
       category_name:props.data.category_name||'',
       name:props.data.name||'',
+      img:props.data.img||'',
       // loading:false
     }
   }
 
   //保存按钮
  submit=()=>{
+   this.$axios.get(`/ggv1/admin/updateAdvs?_id=${this.state._id}&adv_swiper_id=${this.state.adv_swiper_id}&category_second_id=${this.state.category_second_id}&category_name=${this.state.category_name}&name=${this.state.name}&img=${this.state.img}`)
+    .then((data)=>{
+        // console.log(data)
+    })
     Modal.success({
         title: '恭喜你，保存成功',
       });

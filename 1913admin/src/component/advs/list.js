@@ -29,7 +29,7 @@ class Listmanage extends Component{
         key: 'img',
         render(img){
           return(
-           <img src={img} width='80' height='50' alt=''/> 
+           <img src={img} width='70' height='60' alt=''/> 
           )
         },
       },

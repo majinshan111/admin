@@ -63,10 +63,16 @@ class Avatar extends React.Component {
    if(this.state.image===''){
      message.error('请先上传图片哦！')
    }else{
+      ////请求数据
+     this.$axios.get(`/ggv1/admin/addAdvs?adv_swiper_id=${this.state.adv_swiper_id}&category_second_id=${this.state.category_second_id}&category_name=${this.state.category_name}&name=${this.state.name}&img=${this.state.img}`)
+     .then((data)=>{
+       console.log(data)
+     })
+      
+      
+      
       success()
-        ////请求数据
-      this.$axios.get('/ggv1/admin/addAdvs')
-      .then(()=>{})
+
    }
   //  console.log(this.state.image)
  }
