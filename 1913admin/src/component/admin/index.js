@@ -45,13 +45,13 @@ class SiderDemo extends React.Component {
               <span>首页</span>
             </Link>
             </Menu.Item>
-            {/* <Menu.Item key="2">
+            <Menu.Item key="2">
             <Link to="/admin/users">
               <Icon type="user" />
               <span>用户信息管理</span>
             </Link>
-            </Menu.Item> */}
-            <SubMenu
+            </Menu.Item> 
+            {/* <SubMenu
               key="sub1"
               title={
                 <span>
@@ -71,7 +71,7 @@ class SiderDemo extends React.Component {
               </Link>
                   </Menu.Item>
               
-            </SubMenu>
+            </SubMenu> */}
            
              <SubMenu
               key="sub2"
