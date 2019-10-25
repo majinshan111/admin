@@ -17,7 +17,7 @@ const OrderDispath = ComponentImport(()=>import('./component/orders/orderDispath
 const OrderRefund = ComponentImport(()=>import('./component/orders/orderRefund'))
 const Orders = ComponentImport(()=>import('./component/orders/orders'))
 const Advs = ComponentImport(()=>import('./component/advs/index'))
-const AdvsAdd = ComponentImport(()=>import('./component/advs/add'))
+const AdvsAdd = ComponentImport(()=>import('./component/advs/Addadvs/add'))
 
 class RootRouter extends Component{
     render(){

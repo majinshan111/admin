@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 //创建userSchema
 const userSchema = mongoose.Schema({
-    adv_swiper_id:{type:Number},
+    adv_swiper_id:{type:String,required:true},
     category_second_id:{type:Number},
     category_name:{type:String,required:true},
     name:{type:String,required:true},

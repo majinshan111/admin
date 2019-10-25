@@ -10,7 +10,7 @@ function getBase64(img, callback) {
    //提交时弹出成功
 function success() {
   Modal.success({
-    title: '恭喜你，保存成功',
+    title: '恭喜你，创建成功',
   });
 }
  //页面跳转
@@ -41,6 +41,7 @@ class Avatar extends React.Component {
       // loading:false
     }
   }
+
   handleChange = info => {
     if (info.file.status === 'uploading') {
       this.setState({ loading: true });
@@ -63,8 +64,11 @@ class Avatar extends React.Component {
      message.error('请先上传图片哦！')
    }else{
       success()
+        ////请求数据
+      this.$axios.get('/ggv1/admin/addAdvs')
+      .then(()=>{})
    }
-   console.log(this.state.image)
+  //  console.log(this.state.image)
  }
   render() {
     const uploadButton = (
@@ -86,7 +90,7 @@ class Avatar extends React.Component {
          }} />
         </Form.Item>
 
-        <Form.Item {...formItemLayout} label="编码">
+        <Form.Item {...formItemLayout} label="Id">
          <Input value={this.state.category_second_id} onChange={(e)=>{
            this.setState({category_second_id:e.target.value})
          }} />
@@ -117,7 +121,7 @@ class Avatar extends React.Component {
       
        <Form.Item {...formTailLayout}>
         <Button type="primary" onClick={this.submit}>
-         保存
+         创建
         </Button>
       </Form.Item>
       </Fragment>
