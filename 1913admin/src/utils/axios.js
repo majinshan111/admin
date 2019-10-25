@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// import store from '../store/store'
-// import actionCreator from '../store/actionCreator'
+import store from '../store/store'
+import actionCreator from '../store/actionCreator'
 
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
@@ -15,9 +15,17 @@ axios.interceptors.request.use(function (config) {
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
     // Do something with response data
-
-    /* let action =actionCreator.changeTokenModel(true)
-    store.dispatch(action) */
+console.log('response:::',response)
+  /* if(!response.data.token){
+    console.log('修改token。。。。。')
+    let action =actionCreator.changeTokenModel(true)
+      store.dispatch(action)
+  } */
+  if( response.data.err === -998){
+    let action =actionCreator.changeTokenModel(true)
+      store.dispatch(action)
+  }
+  
     
     return response;
   }, function (error) {

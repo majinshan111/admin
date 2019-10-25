@@ -2,13 +2,30 @@ import React,{Component} from 'react'
 import { Button } from 'antd'
 import './warehousing.less'
 class wareHousing extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
-            ruku:""
+            ruku:"",
+            count:''
         }
     }
+    saveData=(page)=>{
+        let {id,name,goodsType,oldPrice,nowPrice,counts,sale,guige,addRess,state,imgPath,second} = this.props.data
+        let num = counts + Number(this.state.ruku)
+        this.$axios.get(`/fm/admin/house/addHouse?id=${id}&name=${name}&counts=${num}&goodin=${this.state.ruku}`)
+        .then((data)=>{
+            console.log(data)
+        })
+        this.$axios.get(`/fm/admin/goods/updateGoods?id=${id}&name=${name}&goodsType=${goodsType}&oldPrice=${oldPrice}&nowPrice=${nowPrice}&counts=${num}&sale=${sale}&guige=${guige}&addRess=${addRess}&state=${state}&imgPath=${imgPath}&second=${second}`)
+        .then((data)=>{
+            console.log(data,'保存')
+            alert('入库成功')
+            this.props.changeComState(false)
+            this.props.refreshData(page)
+        })
+    }
     render(){
+        console.log(this.props,'入库')
         return(
             <div className="house-box">
                 <ul>
@@ -18,7 +35,7 @@ class wareHousing extends Component{
                     </li>
                     <li>
                         <label>库存数量：</label>
-                        <input type="text" value="555" disabled/>
+                        <input type="text" value={this.props.data.counts} disabled/>
                     </li>
                     <li>
                         <label>入库数量：</label>
@@ -31,7 +48,9 @@ class wareHousing extends Component{
                             console.log(this.props)
                             this.props.changeComState(false)
                         }}>取消</Button>
-                        <Button type="primary">保存</Button>
+                        <Button type="primary" onClick={()=>{
+                            this.saveData(this.props.nowPage)
+                        }}>保存</Button>
                     </li>
                 </ul>
             </div>
