@@ -6,7 +6,9 @@ import {withRouter}from 'react-router-dom'
 // import state from '../../store/state';
 
 class TokenModel extends Component{
+   
     render(){
+        console.log('model')
         console.log(this,'model')
         let {TokenModel}=this.props
         return(
