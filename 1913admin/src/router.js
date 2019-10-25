@@ -16,7 +16,8 @@ const CategorySecond = ComponentImport(()=>import('./component/category/category
 const OrderDispath = ComponentImport(()=>import('./component/orders/orderDispath'))
 const OrderRefund = ComponentImport(()=>import('./component/orders/orderRefund'))
 const Orders = ComponentImport(()=>import('./component/orders/orders'))
-const Advs = ComponentImport(()=>import('./component/advs'))
+const Advs = ComponentImport(()=>import('./component/advs/index'))
+const AdvsAdd = ComponentImport(()=>import('./component/advs/Addadvs/add'))
 
 class RootRouter extends Component{
     render(){
@@ -45,6 +46,7 @@ class RootRouter extends Component{
                             <Route path='/admin/orderrefund' component={OrderRefund}/>
                             <Route path='/admin/orders' component={Orders}/>
                             <Route path='/admin/advs' component={Advs}/>
+                            <Route path='/admin/add' component={AdvsAdd}/>
                         </Admin>
                     )
                 }}/>

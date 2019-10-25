@@ -82,14 +82,26 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
-      '/fm':{
-        target:'http://10.60.14.254:3000',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/fm':''
-        }
-      }
-    },
+
+      '/fm':{
+
+        target:'http://10.60.14.254:3000',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/fm':''
+        }
+      },
+      
+      '/ggv1':{
+        target:'http://10.60.14.184:3000',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/ggv1':''
+        }
+      }
+    },
+
+
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons

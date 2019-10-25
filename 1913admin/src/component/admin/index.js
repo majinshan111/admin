@@ -1,9 +1,10 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon,Dropdown } from 'antd';
 import SidebarLogo from './SidebarLogo';
 import { Link } from 'react-router-dom';
-// import './index.less'
+import TokenModel from '../model'
+
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -17,11 +18,28 @@ class SiderDemo extends React.Component {
     console.log(collapsed);
     this.setState({ collapsed });
   };
+  renderOverlay() {
+    return (
+      <Menu >
+        <Menu.Item>
+          <Link to="/login">
+            退出
+          </Link>
+        </Menu.Item>
+      </Menu>
+    )
+  }
 
   render() {
-      console.log(this)
+      // console.log(this)
+      const menu = this.renderOverlay()
+      // const { prefixCls, separator, children, ...restProps } = this.props;
+     /*  // console.log(this.props,'this.props')
+      console.log('111111:',{...restProps}) */
+
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: '100vh' }} id='App'>
+        <TokenModel></TokenModel>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           {/* <div className="logo" /> */}
           <SidebarLogo className="logo"/>
@@ -121,12 +139,27 @@ class SiderDemo extends React.Component {
         </Sider>
         <Layout>
           {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
-          <Content style={{ margin: '0 16px' }} className="content-box">
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360,maxHeight:526,overflow:'auto'}}>{this.props.children}</div>
+          <Content style={{ margin: '10px 16px' }}>
+             <Breadcrumb style={{ margin: '0 0 10px 0' }} className='head'>
+              <div>
+                {/* <Breadcrumb.Item >肥猫超市</Breadcrumb.Item> */}
+              {/* <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
+              肥猫超市
+             
+              </div>
+              <div>
+                  <Dropdown overlay={menu} className='head-right'>
+                      <li className="nav-item">
+                        <Icon
+                          type="user"
+                        />
+                        
+                      </li>
+                </Dropdown>
+              </div>
+              
+            </Breadcrumb> 
+            <div className='home-main' style={{ padding: 24, background: '#fff', minHeight: 360 ,maxHeight:520,overflow: 'auto'}}>{this.props.children}</div>
           </Content>
           {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
         </Layout>
@@ -135,5 +168,4 @@ class SiderDemo extends React.Component {
   }
 }
 
-// ReactDOM.render(<SiderDemo />, mountNode);
 export default SiderDemo
