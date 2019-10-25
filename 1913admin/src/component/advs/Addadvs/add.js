@@ -1,5 +1,5 @@
 import React,{Component,Fragment} from 'react'
-
+import Base64  from 'base-64';
 import { Upload, Icon ,Form,Button,Input,message,Modal} from 'antd';
 // import './index.less'
 function getBase64(img, callback) {
@@ -37,30 +37,46 @@ class Avatar extends React.Component {
       category_second_id:'',
       category_name:'',
       name:'',
-      image:'',
+      img:'',
       // loading:false
     }
   }
 
-  handleChange = info => {
-    if (info.file.status === 'uploading') {
-      this.setState({ loading: true });
-      return;
-    }
-    if (info.file.status === 'done') {
+  // handleChange = info => {
+  //   if (info.file.status === 'uploading') {
+  //     this.setState({ loading: true });
+  //     return;
+  //   }
+  //   if (info.file.status === 'done') {
 
-      getBase64(info.file.originFileObj, image =>
-        this.setState({
-          image,
-          loading: false,
-        }),
-      );
-    }
-  };
-
+  //     getBase64(info.file.originFileObj, img =>
+  //       this.setState({
+  //         img,
+  //         loading: false,
+  //       }),
+  //     );
+  //   }
+  // };
+  handleChange=()=>{
+    let file = this.refs.file.files[0]
+        let formdata = new FormData()
+        formdata.append('hehe',file)
+        // console.log(formdata.get('hehe'))
+        // console.log(file)
+        let config = {
+            headers:{'Content-Type':'multipart/form-data'}
+        }
+        this.$axios.post('/fm/admin/file/img',formdata,config)
+        .then((data)=>{
+            console.log(data)
+            let imgpath = 'http://10.60.14.254:3000' + data.data.imgPath
+            console.log(imgpath)
+            this.setState({img:imgpath})
+        })
+  }
   //保存按钮
  submit=()=>{
-   if(this.state.image===''){
+   if(this.state.img===''){
      message.error('请先上传图片哦！')
    }else{
       ////请求数据
@@ -74,7 +90,7 @@ class Avatar extends React.Component {
       success()
 
    }
-  //  console.log(this.state.image)
+   console.log(this.state)
  }
   render() {
     const uploadButton = (
@@ -83,7 +99,7 @@ class Avatar extends React.Component {
         <div>添加图片</div>
       </div>
     );
-    const { image } = this.state;
+    const { img } = this.state;
     return (
       <Fragment >
 
@@ -115,14 +131,22 @@ class Avatar extends React.Component {
         </Form.Item>
 
         <Form.Item {...formItemLayout} label="图片" >
-      <Upload
+          <input type="file" ref="file"></input>
+          <button onClick={this.handleChange}>上传</button>
+      {/* <Upload
         listType="picture-card"
         showUploadList={false}
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         onChange={this.handleChange}
+        ref="files"
       >
-        {image ? <img src={image} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-      </Upload>
+        {img ? <img src={img} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+      </Upload> */}
+      {/* <div>
+        <input type="file" ref="file"/>
+        <button onClick={this.handleChange}>上传</button>
+        <img src={this.state.img} />
+      </div> */}
         </Form.Item>
       
        <Form.Item {...formTailLayout}>
