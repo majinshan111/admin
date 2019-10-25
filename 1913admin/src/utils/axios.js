@@ -16,14 +16,16 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
     // Do something with response data
 console.log('response:::',response)
-
-  /* if(response.data.token){
+  /* if(!response.data.token){
+    console.log('修改token。。。。。')
     let action =actionCreator.changeTokenModel(true)
       store.dispatch(action)
   } */
-  console.log('token',response.data.token)
+  if( response.data.err === -998){
     let action =actionCreator.changeTokenModel(true)
-    store.dispatch(action)
+      store.dispatch(action)
+  }
+  
     
     return response;
   }, function (error) {

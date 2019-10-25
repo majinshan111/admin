@@ -3,7 +3,8 @@ import React from 'react';
 import { Layout, Menu, Breadcrumb, Icon ,Dropdown} from 'antd';
 import SidebarLogo from './SidebarLogo';
 import { Link } from 'react-router-dom';
-// import './index.less'
+import TokenModel from '../model'
+
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -32,8 +33,13 @@ class SiderDemo extends React.Component {
   render() {
       // console.log(this)
       const menu = this.renderOverlay()
+      const { prefixCls, separator, children, ...restProps } = this.props;
+     /*  // console.log(this.props,'this.props')
+      console.log('111111:',{...restProps}) */
+
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: '100vh' }} id='App'>
+        <TokenModel></TokenModel>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           {/* <div className="logo" /> */}
           <SidebarLogo className="logo"/>
@@ -133,8 +139,8 @@ class SiderDemo extends React.Component {
                 <span>订单查询</span>
               </Link>
                   </Menu.Item>
-              <Menu.Item key="10">
-              <Link to="/admin/orderdispatch">
+              <Menu.Item key="9">
+              <Link to="/admin/orderdispath">
                   <span>订单配送&nbsp;&nbsp;</span>
                 </Link>
                   </Menu.Item>
@@ -154,11 +160,13 @@ class SiderDemo extends React.Component {
         </Sider>
         <Layout>
           {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }} className='head'>
+          <Content style={{ margin: '10px 16px' }}>
+             <Breadcrumb style={{ margin: '0 0 10px 0' }} className='head'>
               <div>
-                <Breadcrumb.Item>主页</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                {/* <Breadcrumb.Item >肥猫超市</Breadcrumb.Item> */}
+              {/* <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
+              肥猫超市
+             
               </div>
               <div>
                   <Dropdown overlay={menu} className='head-right'>
@@ -166,12 +174,13 @@ class SiderDemo extends React.Component {
                         <Icon
                           type="user"
                         />
+                        
                       </li>
                 </Dropdown>
               </div>
               
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360}}>{this.props.children}</div>
+            </Breadcrumb> 
+            <div className='home-main' style={{ padding: 24, background: '#fff', minHeight: 360 ,maxHeight:565,overflow: 'auto'}}>{this.props.children}</div>
           </Content>
           {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
         </Layout>
@@ -180,5 +189,4 @@ class SiderDemo extends React.Component {
   }
 }
 
-// ReactDOM.render(<SiderDemo />, mountNode);
 export default SiderDemo
