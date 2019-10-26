@@ -100,11 +100,11 @@ class Orders extends Component {
               {/* console.log(e.target.value) */}
             this.setState({inputvalue2:e.target.value})
           }}/></div >
-        <div  style={{ display:'flex',width:420,height:64,padding:'0 12px'}}><div style={{width:42,height:32,fontSize:14,lineHeight:'32px'}}>时间:</div>  <RangePicker 
+        {/* <div  style={{ display:'flex',width:420,height:64,padding:'0 12px'}}><div style={{width:42,height:32,fontSize:14,lineHeight:'32px'}}>时间:</div>  <RangePicker 
         onChange={(dates)=>{
           console.log(dates)
         }}
-        /></div >
+        /></div > */}
         <div  style={{ display:'flex',width:240,height:64,padding:'0 12px'}}>
         <div style={{width:70,height:32,fontSize:14,lineHeight:'32px'}}>订单状态:</div > 
         <Select
