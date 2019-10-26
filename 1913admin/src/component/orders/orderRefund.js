@@ -80,7 +80,7 @@ class OrdersRefund extends Component {
           
           return(
             <div >
-             <Button onClick={()=>{
+             <Button type="primary" onClick={()=>{
              
                this_.state.yesOrno[index_]=false;
               
@@ -90,7 +90,7 @@ class OrdersRefund extends Component {
               } >
                同意
               </Button>
-             <Button onClick={()=>{
+             <Button type="danger" onClick={()=>{
               this_.state.yesOrno[index_]=false;
               this_.setState({})
               }
