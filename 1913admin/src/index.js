@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Router from './router'
 import axios from './utils/axios'
 <<<<<<< HEAD
+=======
+import React ,{Component}from 'react';
+import ReactDOM from 'react-dom';
+import Router from './router'
+import axios from './utils/axios'
+>>>>>>> zyf
 // import App from './App';
 
 =======
@@ -11,11 +18,17 @@ import Store from './store/store'
 >>>>>>> e29b326d5ce72de82cb7983d5ccb49a3859fd7ad
 import * as serviceWorker from './serviceWorker';
 // import Admin from './component/admin/index'
+<<<<<<< HEAD
 Component.prototype.$axios=axios
 ReactDOM.render(
     <Provider store={Store}>
         <Router></Router>
     </Provider>
+=======
+Component.prototype.$axios = axios
+ReactDOM.render(
+<Router></Router>
+>>>>>>> zyf
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

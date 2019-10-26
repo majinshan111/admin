@@ -84,6 +84,7 @@ module.exports = function(proxy, allowedHost) {
     proxy:{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       // '/yapi':{
       //   target:'http://yapi.demo.qunar.com/mock/10478',
       //   changeOrigin:true,
@@ -96,10 +97,15 @@ module.exports = function(proxy, allowedHost) {
       '/fm':{
 >>>>>>> e29b326d5ce72de82cb7983d5ccb49a3859fd7ad
         target:'http://10.60.14.254:3000',
+=======
+      '/fm':{
+        target:'http://localhost:3000',
+>>>>>>> zyf
         changeOrigin:true,
         pathRewrite:{
           '^/fm':''
         }
+<<<<<<< HEAD
       }
     },
 =======
@@ -112,6 +118,10 @@ module.exports = function(proxy, allowedHost) {
       }
     },
 >>>>>>> wj
+=======
+    }
+    },
+>>>>>>> zyf
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
