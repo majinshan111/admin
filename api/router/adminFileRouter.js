@@ -23,7 +23,7 @@ router.post('/img',multer().single('hehe'),(req,res)=>{
         if(err){
             res.send({err:-1,msg:'文件上传错误'}) 
         }else{
-            res.send({err:0,msg:'文件上传ok',imgPath:`./public/img/${filename}${extname}`}) 
+            res.send({err:0,msg:'文件上传ok',imgPath:`/public/img/${filename}${extname}`}) 
         }
     })
 })
