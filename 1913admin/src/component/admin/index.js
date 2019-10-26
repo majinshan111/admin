@@ -163,7 +163,7 @@ class SiderDemo extends React.Component {
               </div>
               
             </Breadcrumb> 
-            <div className='home-main' style={{ padding: 24, background: '#fff', minHeight: 360 ,maxHeight:520,overflow: 'auto'}}>{this.props.children}</div>
+            <div className='home-main' style={{ padding: 24, background: '#fff', minHeight: 360 ,maxHeight:550,overflow: 'auto'}}>{this.props.children}</div>
           </Content>
           {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
         </Layout>

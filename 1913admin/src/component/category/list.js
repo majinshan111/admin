@@ -65,7 +65,7 @@ class Listgoods extends Component{
             <div className='listmanage'>
               <Card>
               <Spin tip="Loading..." spinning={spinning}>
-                  <Table scroll={{y:190,x:550}} dataSource={list} columns={columns} pagination={false}></Table>
+                  <Table scroll={{y:350,x:550}} dataSource={list} columns={columns} pagination={false}></Table>
               </Spin>
               </Card>
             </div>

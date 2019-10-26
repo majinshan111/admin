@@ -28,7 +28,7 @@ changeState=(state)=>{
                              <div key={index}>{item}</div>
                          ) 
                      })} */}
-                     <div className='tit'>二级分类</div>
+                     <div className='tit' style={{color:'#000'}}>二级分类</div>
                   </div>
                {/* </div> */}
         <div className='manage-footer'><Button onClick={this.changeState.bind(this,true)} className='btn'>添加</Button>
