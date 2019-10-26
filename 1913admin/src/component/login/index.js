@@ -98,9 +98,9 @@ submit=()=>{
             登录
           </Button>
       </Form>
-          <button onClick={()=>{
+        {/*   <button onClick={()=>{
             this.props.history.push('/admin')
-          }}>Home</button>
+          }}>Home</button> */}
       </div>
     
       
