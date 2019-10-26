@@ -15,14 +15,17 @@ axios.interceptors.request.use(function (config) {
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
     // Do something with response data
-// console.log('response:::',response)
-
-  if(!response.data.token){
+console.log('response:::',response)
+  /* if(!response.data.token){
+    console.log('修改token。。。。。')
+    let action =actionCreator.changeTokenModel(true)
+      store.dispatch(action)
+  } */
+  if( response.data.err === -998){
     let action =actionCreator.changeTokenModel(true)
       store.dispatch(action)
   }
-    /* let action =actionCreator.changeTokenModel(true)
-    store.dispatch(action) */
+  
     
     return response;
   }, function (error) {

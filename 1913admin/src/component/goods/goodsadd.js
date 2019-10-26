@@ -1,8 +1,9 @@
 import React,{Component}from 'react';
-import CategorySelect from './component/categoryselector'
-import { Button,Form,Input } from 'antd';
+// import CategorySelect from './component/categoryselector'
+import { Button,Form,Input,Select } from 'antd';
 import './goodsadd.less'
 const FormItem = Form.Item
+const { Option } = Select;
 
 class GoodsAdd extends Component {
     
@@ -10,7 +11,8 @@ class GoodsAdd extends Component {
         super()
         this.state={
             img:'',
-            goodsname:''
+            goodsname:'',
+            typelist:''
         }
     }
     handleReset=()=>{
@@ -33,11 +35,17 @@ class GoodsAdd extends Component {
             this.setState({img:imgpath})
         })
     }
-    submit=()=>{
+    submit=(imgpath)=>{
         this.props.form.validateFields((err,data)=>{
-            console.log(data.goodName)
+            // console.log(imgpath)
+            console.log(data.goodName,data.categorySecondId,data.price)
+            this.$axios.get(`/fm/admin/goods/addGoods?id=${data.id}&name=${data.goodName}&goodsType=${data.categorySecondId}&oldPrice=${data.originalPrice}&nowPrice=${data.price}&counts=${0}&sale=${0}&guige=${data.spec}&addRess=${data.origin}&state=在售&imgPath=${imgpath}&second=${data.typyid}`)
+            .then((data)=>{
+                alert('添加成功')
+            })
         })
     }
+    
     render(){
         const { getFieldDecorator } = this.props.form;
         return(
@@ -48,6 +56,16 @@ class GoodsAdd extends Component {
                     <hr/>
                 </div>
                 <Form layout="vertical">
+                    <FormItem label="商品id:">
+                        {getFieldDecorator('id', {
+                        rules: [{
+                            required: true,
+                            message: '请输入商品id'
+                        }]
+                        })(
+                        <Input type="number"/>
+                        )}
+                    </FormItem>
                     <FormItem label="商品名称:">
                         {getFieldDecorator('goodName', {
                         rules: [{
@@ -69,7 +87,21 @@ class GoodsAdd extends Component {
                             message: '请选择商品类别'
                         }]
                         })(
-                            <CategorySelect />
+                            // <CategorySelect></CategorySelect>
+                            <Select initialValue="冷餐冷冻">
+                                {/* {this.typeRenser(typelist)} */}
+                                {/* {typelist.map((item)=>{
+                                    return(
+                                        <Option value={item.name}>{item.name}</Option>
+                                    )
+                                })} */}
+                                <Option value="冷餐冷冻">冷餐冷冻</Option>
+                                <Option value="精品水果">精品水果</Option>
+                                <Option value="天天鲜食">天天鲜食</Option>
+                                <Option value="粮油干货">粮油干货</Option>
+                                <Option value="中外名酒">中外名酒</Option>
+                                <Option value="休闲零食">休闲零食</Option>
+                              </Select>
                         )}
                     </FormItem>
                     <FormItem label="图片:">
@@ -82,7 +114,6 @@ class GoodsAdd extends Component {
                         <div>
                             <input type="file" ref='file' name="" id=""/>
                             <button onClick={this.upload}>上传</button>
-                            {/* <img src='' alt=""/> */}
                         </div>
                         )}
                     </FormItem>
@@ -133,8 +164,18 @@ class GoodsAdd extends Component {
                         <Input />
                         )}
                     </FormItem>
+                    <FormItem label="分类编号:">
+                        {getFieldDecorator('typyid', {
+                        rules: [{
+                            required: true,
+                            message: '请输入商品分类编号'
+                        }]
+                        })(
+                        <Input type="number"/>
+                        )}
+                    </FormItem>
                     <div className="goodsadd-button">
-                        <Button type="primary" onClick={this.submit}>添加</Button>
+                        <Button type="primary" onClick={this.submit.bind(this,this.state.img)}>添加</Button>
                         <Button onClick={this.handleReset}>重置</Button>
                     </div>
                 </Form>
